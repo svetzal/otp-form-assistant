@@ -6,6 +6,17 @@ suggested changes, undo edits, and save through the host application's rules.
 The Hex package and OTP application are `otp_form_assistant`. Elixir modules
 use the `FormAssistant` namespace.
 
+## Documentation
+
+[Read the published documentation](https://vetzal.ca/otp-form-assistant/).
+
+- [Functional guide](guides/functional.md): behavior, draft lifecycle, and limits.
+- [Integration guide](guides/integration.md): host contracts and LiveView wiring.
+- [Deployment guide](guides/deployment.md): releases, operation, and recovery.
+
+GitHub Actions publishes the guides and API reference after the checks pass
+on `main`. Run `mix docs --warnings-as-errors` to build them locally.
+
 ## Scope
 
 The package owns form descriptions, drafts, history, review, assistant tools,

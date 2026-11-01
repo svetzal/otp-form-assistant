@@ -17,6 +17,9 @@ Read `CHARTER.md` before changing scope.
   access.
 - Use Armature tokens in CSS. Preserve browser behavior during extraction.
 - Keep package assets and hook imports documented in `README.md`.
+- Keep full functional, integration, and deployment guides under `guides/`.
+  Publish the guides and API reference to GitHub Pages through GitHub Actions.
+  Changes to behavior, contracts, or operation must update the matching guide.
 - Never write credentials to files. Read secrets from the platform secret store
   into memory.
 - Foundry registration requires Stacey's decision. This repository is not

@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Add functional, integration, and deployment guides to the API reference.
+- Publish documentation to GitHub Pages through GitHub Actions after quality checks.
+- Link source references to the revision used for each documentation build.
+
 ## 0.1.0
 
 - Copy the form assistant into a standalone OTP application and Hex package.

@@ -4,7 +4,7 @@ defmodule FormAssistant.Tools do
   description. Pure. `run/3` takes a tool call's name and arguments (JSON
   or a map) and the draft, and gives the output for the model, the new draft
   and, for `save`, the person's words that asked for it. Saving is not done
-  here: it needs the scope (`FormAssistant.Session.save/2`).
+  here: it needs the scope (`FormAssistant.save/2`).
 
   Bad input becomes an error output, never an exception.
   """

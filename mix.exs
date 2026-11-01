@@ -18,9 +18,10 @@ defmodule OtpFormAssistant.MixProject do
         licenses: ["MIT"],
         links: %{"GitHub" => @source_url},
         files:
-          ~w(lib priv/static .formatter.exs mix.exs README.md CHANGELOG.md LICENSE.md CHARTER.md)
+          ~w(lib priv/static guides .formatter.exs mix.exs README.md CHANGELOG.md LICENSE.md CHARTER.md)
       ],
       source_url: @source_url,
+      homepage_url: "https://vetzal.ca/otp-form-assistant/",
       compilers: [:phoenix_live_view] ++ Mix.compilers(),
       test_coverage: [
         summary: [threshold: 90],
@@ -29,8 +30,19 @@ defmodule OtpFormAssistant.MixProject do
       dialyzer: [plt_local_path: "priv/plts", plt_core_path: "priv/plts"],
       docs: [
         main: "readme",
-        source_ref: "v#{@version}",
-        extras: ["README.md", "CHARTER.md", "CHANGELOG.md"]
+        source_ref: System.get_env("DOCS_SOURCE_REF", "main"),
+        extras: [
+          "README.md",
+          "guides/functional.md",
+          "guides/integration.md",
+          "guides/deployment.md",
+          "CHARTER.md",
+          "CHANGELOG.md"
+        ],
+        groups_for_extras: [Guides: ~r/guides\//],
+        filter_modules: fn module, _metadata ->
+          module not in [FormAssistant.FakeTransport, FormAssistant.TestForm]
+        end
       ]
     ]
   end
