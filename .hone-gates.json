@@ -1,0 +1,70 @@
+{
+  "gates": [
+    {
+      "name": "deps",
+      "command": "MIX_ENV=test mix deps.get",
+      "required": true
+    },
+    {
+      "name": "format",
+      "command": "MIX_ENV=test mix format --check-formatted",
+      "required": true
+    },
+    {
+      "name": "compile",
+      "command": "MIX_ENV=test mix compile --warnings-as-errors",
+      "required": true
+    },
+    {
+      "name": "unused-deps",
+      "command": "MIX_ENV=test mix deps.unlock --check-unused",
+      "required": true
+    },
+    {
+      "name": "test",
+      "command": "MIX_ENV=test mix test --cover",
+      "required": true
+    },
+    {
+      "name": "credo",
+      "command": "MIX_ENV=test mix credo --strict",
+      "required": true
+    },
+    {
+      "name": "dialyzer",
+      "command": "MIX_ENV=test mix dialyzer",
+      "required": true,
+      "timeout": 1800
+    },
+    {
+      "name": "docs",
+      "command": "MIX_ENV=test mix docs --warnings-as-errors",
+      "required": true
+    },
+    {
+      "name": "hex-audit",
+      "command": "MIX_ENV=test mix hex.audit",
+      "required": true
+    },
+    {
+      "name": "deps-audit",
+      "command": "MIX_ENV=test mix deps.audit",
+      "required": true
+    },
+    {
+      "name": "sobelow",
+      "command": "MIX_ENV=test mix sobelow --config",
+      "required": true
+    },
+    {
+      "name": "package",
+      "command": "MIX_ENV=test mix hex.build",
+      "required": true
+    },
+    {
+      "name": "package-consumer",
+      "command": "python3 scripts/check-package.py",
+      "required": true
+    }
+  ]
+}

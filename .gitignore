@@ -1,0 +1,8 @@
+/_build/
+/deps/
+/doc/
+/cover/
+/priv/plts/
+/tmp/
+/otp_form_assistant-*.tar
+erl_crash.dump

@@ -1,0 +1,43 @@
+name: Quality
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    env:
+      MIX_ENV: test
+    steps:
+      - uses: actions/checkout@v7
+      - uses: erlef/setup-beam@v1
+        with:
+          version-file: .tool-versions
+          version-type: strict
+      - uses: actions/cache@v6
+        with:
+          path: |
+            deps
+            _build
+            priv/plts
+          key: ${{ runner.os }}-beam-${{ hashFiles('.tool-versions', 'mix.lock') }}
+      - name: Run every quality gate
+        run: |
+          python3 - <<'PYTHON'
+          import json
+          import subprocess
+          for gate in json.load(open(".hone-gates.json"))["gates"]:
+              print(f"::group::{gate['name']}", flush=True)
+              subprocess.run(gate["command"], shell=True, check=True, timeout=gate.get("timeout", 600))
+              print("::endgroup::", flush=True)
+          PYTHON
+      - uses: actions/upload-artifact@v7
+        with:
+          name: hex-package
+          path: otp_form_assistant-*.tar

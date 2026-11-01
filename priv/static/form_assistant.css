@@ -1,0 +1,87 @@
+/* The form assistant (FormAssistant.Components), styled with Armature tokens. */
+
+/* The draft bar stays at the top while there are changes not saved. */
+.fa-draft-bar {
+  position: sticky;
+  top: var(--armature-space-2);
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--armature-space-3);
+  padding: var(--armature-space-3) var(--armature-space-4);
+  border: var(--armature-border-width) solid var(--armature-accent);
+  border-radius: var(--armature-radius-panel);
+  background: var(--armature-paper);
+  box-shadow: var(--armature-shadow);
+}
+
+.fa-draft-count {
+  margin: var(--armature-space-zero);
+  font-weight: var(--armature-weight-emphasis);
+}
+
+.fa-changes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--armature-space-1);
+  margin: var(--armature-space-zero);
+  padding: var(--armature-space-2) var(--armature-space-3);
+  border-inline-start: var(--armature-cue-width) solid var(--armature-warning-emphasis);
+  border-radius: var(--armature-radius-small);
+  background: var(--armature-warning-bg);
+  list-style: none;
+  line-height: var(--armature-line-height);
+}
+
+.fa-turns {
+  display: flex;
+  flex-direction: column;
+  gap: var(--armature-space-2);
+  max-height: 22rem;
+  overflow-y: auto;
+}
+
+.fa-turn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--armature-space-half);
+  max-width: 44rem;
+  margin: var(--armature-space-zero);
+  padding: var(--armature-space-2) var(--armature-space-3);
+  border-radius: var(--armature-radius-base);
+  background: var(--armature-recessed);
+  line-height: var(--armature-line-height);
+}
+
+.fa-turn[data-speaker="owner"] {
+  align-self: flex-end;
+  background: var(--armature-selected);
+}
+
+.fa-turn-who,
+.fa-busy {
+  color: var(--armature-muted);
+  font-size: var(--armature-text-small);
+}
+
+.fa-turn-who {
+  font-weight: var(--armature-weight-emphasis);
+}
+
+.fa-busy {
+  margin: var(--armature-space-zero);
+}
+
+.fa-say {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--armature-space-2);
+}
+
+.fa-say > :first-child {
+  flex: 1 1 16rem;
+}
+
