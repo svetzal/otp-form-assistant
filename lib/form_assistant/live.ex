@@ -15,7 +15,7 @@ defmodule FormAssistant.Live do
      `{:form_assistant_voice, _, _}` messages to `handle_info/2`, and the
      `:form_assistant_turn` async result to `handle_async/3`;
   4. while `active?/1`, sends the person's own form edits to `owner_edit/2`
-     or `owner_set/4` instead of saving them, so they go on the same history.
+     or `owner_set/3` instead of saving them, so they go on the same history.
 
   The state lives under the `:form_assistant` assign, and the conversation
   in the `:form_assistant_turns` stream.
